@@ -8,7 +8,6 @@
     * {
       box-sizing: border-box;
     }
-
     body {
       margin: 0;
       font-family: sans-serif;
@@ -27,28 +26,28 @@
     .navbar {
       display: flex;
       align-items: center;
-      padding: 20px 30px;
+      padding: 22px 30px;
     }
 
     .logo {
       font-weight: bold;
       font-size: 20px;
-      margin-left: 40px;
+      margin-left: 30px;
     }
 
     .nav-items {
       display: flex;
-      gap: 35px;
+      gap: 25px;
       list-style: none;
       margin: 0;
       padding: 0;
     }
 
     .nav-item {
-      position: relative;
       font-size: 18px;
       cursor: pointer;
       font-weight: 500;
+      transition: color 0.2s ease;
     }
 
     .nav-item:hover {
@@ -58,6 +57,7 @@
     .mega-menu-wrapper {
       position: relative;
       width: 100%;
+      z-index: 999;
     }
 
     .mega-menu {
@@ -66,16 +66,14 @@
       top: 100%;
       right: 0;
       left: 0;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(10px);
-      padding: 15px 40px;
+      padding: 20px 40px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       border-top: 1px solid #ddd;
-      width: 100%;
       flex-wrap: wrap;
       justify-content: flex-start;
       direction: rtl;
-      z-index: 999;
     }
 
     .mega-menu.active {
@@ -99,8 +97,8 @@
       text-decoration: none;
       color: #333;
       margin-bottom: 8px;
-      transition: all 0.2s ease;
       font-size: 15px;
+      transition: color 0.2s ease, font-weight 0.2s ease;
     }
 
     .column a:hover {
@@ -108,19 +106,10 @@
       font-weight: bold;
     }
 
-    /* موبایل: فقط چینش تغییر کند، منوی همبرگری حذف شده */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      .nav-items {
-        flex-direction: column;
-        width: 100%;
-        padding-right: 20px;
-      }
+    .header-image {
+      display: block;
+      width: 100%;
+      height: auto;
     }
   </style>
 </head>
@@ -129,7 +118,7 @@
   <header>
     <div class="navbar">
       <div class="logo">لوگو</div>
-      <ul class="nav-items">
+      <ul class="nav-items" id="nav-items">
         <li class="nav-item" data-target="menu-mac">مک</li>
         <li class="nav-item" data-target="menu-iphone">آیفون</li>
         <li class="nav-item" data-target="menu-watch">ساعت</li>
@@ -137,8 +126,8 @@
     </div>
   </header>
 
+  <!-- مگا منوها بیرون از هدر -->
   <div class="mega-menu-wrapper">
-    <!-- منوی مک -->
     <div class="mega-menu" id="menu-mac">
       <div class="column">
         <h4>مدل‌های مک</h4>
@@ -153,7 +142,6 @@
       </div>
     </div>
 
-    <!-- منوی آیفون -->
     <div class="mega-menu" id="menu-iphone">
       <div class="column">
         <h4>مدل‌های آیفون</h4>
@@ -162,7 +150,6 @@
       </div>
     </div>
 
-    <!-- منوی ساعت -->
     <div class="mega-menu" id="menu-watch">
       <div class="column">
         <h4>مدل‌های ساعت</h4>
@@ -171,6 +158,8 @@
       </div>
     </div>
   </div>
+
+  <img src="header.png" alt="هدر" class="header-image" />
 
   <script>
     const menuItems = document.querySelectorAll('.nav-item');
@@ -190,9 +179,8 @@
       });
     });
 
-    // بستن منوها با کلیک بیرون
-    window.addEventListener('click', function (e) {
-      if (!e.target.closest('.mega-menu') && !e.target.closest('.nav-item')) {
+    window.addEventListener('click', e => {
+      if (!e.target.closest('.nav-item') && !e.target.closest('.mega-menu')) {
         menus.forEach(menu => menu.classList.remove('active'));
       }
     });
