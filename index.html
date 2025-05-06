@@ -29,29 +29,12 @@
       justify-content: space-between;
       align-items: center;
       padding: 22px 30px;
-      flex-direction: row-reverse;
+      flex-direction: row;
     }
 
     .logo {
       font-weight: bold;
       font-size: 20px;
-    }
-
-    .nav-titles {
-      text-align: right;
-      margin-left: 20px;
-    }
-
-    .site-title {
-      margin: 0;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .site-subtitle {
-      margin: 0;
-      font-size: 14px;
-      color: #666;
     }
 
     .nav-toggle {
@@ -62,7 +45,7 @@
 
     .nav-items {
       display: flex;
-      gap: 35px;
+      gap: 25px;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -88,14 +71,16 @@
       display: none;
       position: absolute;
       top: 100%;
-      background: #f9f9f9;
-      padding: 15px 40px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      right: 0;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 20px 40px;
       border-top: 1px solid #ddd;
       width: 100%;
       flex-wrap: wrap;
       justify-content: flex-start;
       direction: rtl;
+      z-index: 999;
     }
 
     .mega-menu.active {
@@ -126,6 +111,11 @@
     .column a:hover {
       color: #0071e3;
       font-weight: bold;
+    }
+
+    img.header-image {
+      width: 100%;
+      display: block;
     }
 
     /* موبایل */
@@ -169,10 +159,6 @@
 
   <header>
     <div class="navbar">
-      <div class="nav-titles">
-        <h1 class="site-title">اپلی</h1>
-        <h2 class="site-subtitle">فروشگاه رسمی محصولات</h2>
-      </div>
       <div class="logo">لوگو</div>
       <div class="nav-toggle" id="nav-toggle">&#9776;</div>
       <ul class="nav-items" id="nav-items">
@@ -184,7 +170,7 @@
   </header>
 
   <!-- تصویر زیر هدر -->
-  <img src="header.png" alt="هدر" style="width: 100%; display: block;" />
+  <img src="header.png" alt="هدر" class="header-image" />
 
   <div class="mega-menu-wrapper">
     <!-- منوی مک -->
