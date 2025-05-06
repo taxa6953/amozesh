@@ -8,13 +8,14 @@
     * {
       box-sizing: border-box;
     }
+
     body {
       margin: 0;
       font-family: sans-serif;
       background-color: #fff;
       direction: rtl;
     }
-    /* هدر */
+
     header {
       background-color: #fff;
       border-bottom: 1px solid #ddd;
@@ -22,84 +23,104 @@
       top: 0;
       z-index: 1000;
     }
+
     .navbar {
       display: flex;
       align-items: center;
-      padding: 22px 30px;
+      padding: 20px 30px;
     }
+
     .logo {
       font-weight: bold;
       font-size: 20px;
-      margin-left: 30px; /* فاصله لوگو تا آیتم‌های منو */
+      margin-left: 40px;
     }
+
     .nav-items {
       display: flex;
-      gap: 25px;
+      gap: 35px;
       list-style: none;
       margin: 0;
       padding: 0;
     }
+
     .nav-item {
+      position: relative;
       font-size: 18px;
       cursor: pointer;
       font-weight: 500;
-      transition: color 0.2s ease;
     }
+
     .nav-item:hover {
       color: #0071e3;
     }
 
-    /* مگا منو (داخل هدر) */
     .mega-menu-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .mega-menu {
+      display: none;
       position: absolute;
       top: 100%;
       right: 0;
-      width: 100%;
-      z-index: 999;
-    }
-    .mega-menu {
-      display: none;
-      background: rgba(255, 255, 255, 0.7);
+      left: 0;
+      background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(10px);
-      padding: 20px 40px;
+      padding: 15px 40px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       border-top: 1px solid #ddd;
-      display: flex;
+      width: 100%;
       flex-wrap: wrap;
       justify-content: flex-start;
       direction: rtl;
+      z-index: 999;
     }
+
     .mega-menu.active {
       display: flex;
     }
+
     .column {
       flex: 1;
       max-width: 250px;
       margin-left: 40px;
     }
+
     .column h4 {
       font-size: 16px;
       font-weight: bold;
       margin-bottom: 10px;
     }
+
     .column a {
       display: block;
       text-decoration: none;
       color: #333;
       margin-bottom: 8px;
+      transition: all 0.2s ease;
       font-size: 15px;
-      transition: color 0.2s ease, font-weight 0.2s ease;
     }
+
     .column a:hover {
       color: #0071e3;
       font-weight: bold;
     }
 
-    /* تصویر زیر هدر */
-    .header-image {
-      display: block;
-      width: 100%;
-      height: auto;
+    /* موبایل: فقط چینش تغییر کند، منوی همبرگری حذف شده */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .nav-items {
+        flex-direction: column;
+        width: 100%;
+        padding-right: 20px;
+      }
     }
   </style>
 </head>
@@ -108,54 +129,56 @@
   <header>
     <div class="navbar">
       <div class="logo">لوگو</div>
-      <ul class="nav-items" id="nav-items">
+      <ul class="nav-items">
         <li class="nav-item" data-target="menu-mac">مک</li>
         <li class="nav-item" data-target="menu-iphone">آیفون</li>
         <li class="nav-item" data-target="menu-watch">ساعت</li>
       </ul>
     </div>
-
-    <!-- مگا منوها داخل هدر -->
-    <div class="mega-menu-wrapper">
-      <div class="mega-menu" id="menu-mac">
-        <div class="column">
-          <h4>مدل‌های مک</h4>
-          <a href="#">مک‌بوک ایر</a>
-          <a href="#">مک‌بوک پرو</a>
-          <a href="#">آی‌مک</a>
-        </div>
-        <div class="column">
-          <h4>راهنما</h4>
-          <a href="#">مقایسه مدل‌ها</a>
-          <a href="#">خرید ویژه دانشجویان</a>
-        </div>
-      </div>
-      <div class="mega-menu" id="menu-iphone">
-        <div class="column">
-          <h4>مدل‌های آیفون</h4>
-          <a href="#">آیفون ۱۵</a>
-          <a href="#">آیفون ۱۵ پرو</a>
-        </div>
-      </div>
-      <div class="mega-menu" id="menu-watch">
-        <div class="column">
-          <h4>مدل‌های ساعت</h4>
-          <a href="#">سری ۹</a>
-          <a href="#">اولترا ۲</a>
-        </div>
-      </div>
-    </div>
   </header>
 
-  <!-- تصویر زیر هدر -->
-  <img src="header.png" alt="هدر" class="header-image" />
+  <div class="mega-menu-wrapper">
+    <!-- منوی مک -->
+    <div class="mega-menu" id="menu-mac">
+      <div class="column">
+        <h4>مدل‌های مک</h4>
+        <a href="#">مک‌بوک ایر</a>
+        <a href="#">مک‌بوک پرو</a>
+        <a href="#">آی‌مک</a>
+      </div>
+      <div class="column">
+        <h4>راهنما</h4>
+        <a href="#">مقایسه مدل‌ها</a>
+        <a href="#">خرید ویژه دانشجویان</a>
+      </div>
+    </div>
+
+    <!-- منوی آیفون -->
+    <div class="mega-menu" id="menu-iphone">
+      <div class="column">
+        <h4>مدل‌های آیفون</h4>
+        <a href="#">آیفون ۱۵</a>
+        <a href="#">آیفون ۱۵ پرو</a>
+      </div>
+    </div>
+
+    <!-- منوی ساعت -->
+    <div class="mega-menu" id="menu-watch">
+      <div class="column">
+        <h4>مدل‌های ساعت</h4>
+        <a href="#">سری ۹</a>
+        <a href="#">اولترا ۲</a>
+      </div>
+    </div>
+  </div>
 
   <script>
     const menuItems = document.querySelectorAll('.nav-item');
     const menus = document.querySelectorAll('.mega-menu');
 
     menuItems.forEach(item => {
-      item.addEventListener('click', () => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
         const target = item.getAttribute('data-target');
         menus.forEach(menu => {
           if (menu.id === target) {
@@ -167,9 +190,9 @@
       });
     });
 
-    // بستن منو با کلیک بیرون
-    window.addEventListener('click', e => {
-      if (!e.target.closest('.nav-item') && !e.target.closest('.mega-menu')) {
+    // بستن منوها با کلیک بیرون
+    window.addEventListener('click', function (e) {
+      if (!e.target.closest('.mega-menu') && !e.target.closest('.nav-item')) {
         menus.forEach(menu => menu.classList.remove('active'));
       }
     });
