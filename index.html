@@ -1,32 +1,20 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>هیأت غواصی و نجات غریق</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<!-- فرض: Font Awesome در <head> اضافه شده -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-<header id="hero">
-  <canvas id="bg-canvas"></canvas>
-  <div id="lottie-container"></div>
-  <nav id="menu">
-    <ul>
-      <li data-action="initial">خانه</li>
-      <li data-action="courses">ثبت نام دوره‌های آموزشی</li>
-      <li data-action="bulletins">بخشنامه‌ها</li>
-      <li data-action="records">ثبت سوابق</li>
-      <li data-action="exams">آزمون‌ها</li>
-      <li data-action="forms">دانلود فرم‌ها</li>
-      <li data-action="jobseekers">ثبت نام ناجیان جویای کار</li>
-    </ul>
-  </nav>
-</header>
+<section class="topics-container">
+  <div class="topic" onclick="toggleTopic(this)">
+    <div class="topic-title">
+      <i class="fas fa-chart-line"></i>
+      <span>عنوان اول</span>
+    </div>
+    <div class="topic-content">
+      <a href="#">لینک ۱</a>
+      <a href="#">لینک ۲</a>
+      <a href="#">لینک ۳</a>
+      <a href="#">لینک ۴</a>
+      <a href="#">لینک ۵</a>
+    </div>
+  </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
-<script src="script.js"></script>
-
-</body>
-</html>
+  <!-- تکرار برای عنوان‌های دیگر با آیکون متفاوت -->
+</section>
