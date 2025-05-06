@@ -1,188 +1,203 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>Apple Style Header</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>هدر با منوی بازشونده</title>
   <style>
-    * {box-sizing: border-box; margin: 0; padding: 0;}
-    body {font-family: sans-serif;}
+    * {
+      box-sizing: border-box;
+    }
 
-    .top-nav {
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #fff;
+    }
+
+    header.main-header {
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      position: relative;
+      z-index: 100;
+    }
+
+    nav.navbar {
       display: flex;
       justify-content: center;
-      background: #f9f9f9;
-      padding: 10px 0;
-      position: relative;
-      z-index: 10;
-      border-bottom: 1px solid #ddd;
+      align-items: center;
+      padding: 15px 0;
     }
 
-    .nav-item {
-      margin: 0 15px;
-      position: relative;
+    ul.nav-items {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      padding: 0;
+      margin: 0;
     }
 
-    .nav-button {
-      font-size: 14px;
-      background: none;
-      border: none;
+    li.nav-item {
       cursor: pointer;
-      color: #333;
-      padding: 5px;
+      font-weight: 500;
+      font-size: 16px;
+      position: relative;
+      transition: all 0.3s ease;
     }
 
-    .nav-button:hover,
-    .nav-button.active {
+    li.nav-item:hover {
       color: #0071e3;
+    }
+
+    .mega-menu-wrapper {
+      position: relative;
+      width: 100%;
     }
 
     .mega-menu {
       display: none;
       position: absolute;
-      top: 40px;
-      right: 0;
-      width: 100vw;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-top: 1px solid #eee;
-      padding: 40px 100px;
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 60px;
-      z-index: 9;
+      top: 100%;
+      width: 100%;
+      background: #f9f9f9;
+      padding: 30px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-top: 1px solid #ddd;
+      display: none;
+      flex-wrap: nowrap;
+      justify-content: center;
+      direction: rtl;
     }
 
-    .mega-menu.show {
-      display: grid;
-    }
-
-    .mega-menu .col {
+    .mega-menu.active {
       display: flex;
-      flex-direction: column;
     }
 
-    .mega-menu .col h4 {
-      font-size: 14px;
-      color: #888;
+    .column {
+      flex: 1;
+      max-width: 250px;
+      margin: 0 20px;
+    }
+
+    .column h4 {
+      font-size: 16px;
+      font-weight: bold;
       margin-bottom: 10px;
     }
 
-    .mega-menu .col a {
-      font-size: 16px;
-      margin: 6px 0;
+    .column a {
+      display: block;
       text-decoration: none;
-      color: #000;
+      color: #333;
+      margin-bottom: 8px;
+      transition: all 0.2s ease;
     }
 
-    .mega-menu .col a:hover {
+    .column a:hover {
       color: #0071e3;
-    }
-
-    .header-image {
-      width: 100%;
-      height: 300px;
-      background-image: url('3754E583-9EE8-4D0A-9FD6-2C99B8030F25.jpeg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    @media (max-width: 768px) {
-      .mega-menu {
-        display: none !important;
-      }
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <nav class="top-nav">
-    <div class="nav-item">
-      <button class="nav-button" onclick="toggleMenu('macMenu', this)">Mac</button>
-      <div class="mega-menu" id="macMenu">
-        <div class="col">
-          <h4>مرور Mac</h4>
-          <a href="#">MacBook Air</a>
-          <a href="#">MacBook Pro</a>
-          <a href="#">iMac</a>
-        </div>
-        <div class="col">
-          <h4>خرید</h4>
-          <a href="#">خرید Mac</a>
-          <a href="#">تجارت با اپل</a>
-          <a href="#">لوازم جانبی</a>
-        </div>
-        <div class="col">
-          <h4>دیگر</h4>
-          <a href="#">macOS</a>
-          <a href="#">iCloud</a>
-          <a href="#">آموزش</a>
-        </div>
+  <header class="main-header">
+    <nav class="navbar">
+      <ul class="nav-items">
+        <li class="nav-item" data-target="menu-mac">Mac</li>
+        <li class="nav-item" data-target="menu-iphone">iPhone</li>
+        <li class="nav-item" data-target="menu-watch">Watch</li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="mega-menu-wrapper">
+    <!-- Mac Menu -->
+    <div class="mega-menu" id="menu-mac">
+      <div class="column">
+        <h4>مدل‌های Mac</h4>
+        <a href="#">MacBook Air</a>
+        <a href="#">MacBook Pro</a>
+        <a href="#">iMac</a>
+        <a href="#">Mac mini</a>
+      </div>
+      <div class="column">
+        <h4>خرید Mac</h4>
+        <a href="#">مقایسه مدل‌ها</a>
+        <a href="#">تجارت دستگاه</a>
+        <a href="#">تخفیف دانشجویی</a>
+      </div>
+      <div class="column">
+        <h4>ویژگی‌ها</h4>
+        <a href="#">Apple Silicon</a>
+        <a href="#">iCloud</a>
+        <a href="#">macOS</a>
       </div>
     </div>
 
-    <div class="nav-item">
-      <button class="nav-button" onclick="toggleMenu('iphoneMenu', this)">iPhone</button>
-      <div class="mega-menu" id="iphoneMenu">
-        <div class="col">
-          <h4>مدل‌ها</h4>
-          <a href="#">iPhone 15</a>
-          <a href="#">iPhone 14</a>
-          <a href="#">iPhone SE</a>
-        </div>
-        <div class="col">
-          <h4>خدمات</h4>
-          <a href="#">iCloud</a>
-          <a href="#">AppleCare+</a>
-        </div>
-        <div class="col">
-          <h4>پیشنهادها</h4>
-          <a href="#">خرید اقساطی</a>
-          <a href="#">تجارت گوشی</a>
-        </div>
+    <!-- iPhone Menu -->
+    <div class="mega-menu" id="menu-iphone">
+      <div class="column">
+        <h4>مدل‌ها</h4>
+        <a href="#">iPhone 15</a>
+        <a href="#">iPhone 15 Plus</a>
+        <a href="#">iPhone 15 Pro</a>
+        <a href="#">iPhone 15 Pro Max</a>
+      </div>
+      <div class="column">
+        <h4>خرید</h4>
+        <a href="#">تجارت آیفون قدیمی</a>
+        <a href="#">برنامه اقساطی</a>
+      </div>
+      <div class="column">
+        <h4>ویژگی‌ها</h4>
+        <a href="#">دوربین</a>
+        <a href="#">امنیت</a>
+        <a href="#">باتری</a>
       </div>
     </div>
-  </nav>
-</header>
 
-<div class="header-image"></div>
+    <!-- Watch Menu -->
+    <div class="mega-menu" id="menu-watch">
+      <div class="column">
+        <h4>مدل‌ها</h4>
+        <a href="#">Apple Watch Series 9</a>
+        <a href="#">Apple Watch Ultra 2</a>
+        <a href="#">Apple Watch SE</a>
+      </div>
+      <div class="column">
+        <h4>ویژگی‌ها</h4>
+        <a href="#">سلامت</a>
+        <a href="#">ورزش</a>
+        <a href="#">سبک زندگی</a>
+      </div>
+    </div>
+  </div>
 
-<script>
-  function toggleMenu(menuId, button) {
+  <script>
+    const navItems = document.querySelectorAll('.nav-item');
     const menus = document.querySelectorAll('.mega-menu');
-    const buttons = document.querySelectorAll('.nav-button');
 
-    menus.forEach(menu => {
-      if (menu.id !== menuId) {
-        menu.classList.remove('show');
-      }
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const target = item.getAttribute('data-target');
+
+        menus.forEach(menu => {
+          if (menu.id === target) {
+            menu.classList.toggle('active');
+          } else {
+            menu.classList.remove('active');
+          }
+        });
+      });
     });
 
-    buttons.forEach(btn => {
-      if (btn !== button) {
-        btn.classList.remove('active');
+    // کلیک بیرون برای بستن منو
+    window.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav-item') && !e.target.closest('.mega-menu')) {
+        menus.forEach(menu => menu.classList.remove('active'));
       }
     });
-
-    const targetMenu = document.getElementById(menuId);
-    if (targetMenu.classList.contains('show')) {
-      targetMenu.classList.remove('show');
-      button.classList.remove('active');
-    } else {
-      targetMenu.classList.add('show');
-      button.classList.add('active');
-    }
-  }
-
-  // بستن منو با کلیک بیرون
-  document.addEventListener('click', function(event) {
-    const isNav = event.target.closest('.nav-item');
-    if (!isNav) {
-      document.querySelectorAll('.mega-menu').forEach(menu => menu.classList.remove('show'));
-      document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
-    }
-  });
-</script>
-
+  </script>
 </body>
 </html>
