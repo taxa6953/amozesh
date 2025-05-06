@@ -2,200 +2,161 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <title>Apple Style Header</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>بخش عناوین</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Vazir', sans-serif;
-      background-color: #f0f0f0;
-      direction: rtl;
     }
 
-    .topics-container {
-      padding: 40px 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      background-color: #f0f4f8;
+    body {
+      font-family: sans-serif;
     }
 
-    .topic {
-      background: white;
-      border-radius: 12px;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-      overflow: hidden;
+    /* نوار بالا */
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      background: #f9f9f9;
+      padding: 10px 0;
+      position: relative;
+      z-index: 10;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .top-nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      position: relative;
+      padding: 5px;
       cursor: pointer;
     }
 
-    .topic-title {
-      padding: 15px 20px;
+    .top-nav a:hover {
+      color: #0071e3;
+    }
+
+    /* مگا منو */
+    .mega-menu {
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: none;
+      padding: 40px 100px;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 60px;
+      z-index: 9;
+      border-top: 1px solid #eee;
+    }
+
+    .mega-menu .col {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: bold;
+      flex-direction: column;
+    }
+
+    .mega-menu .col h4 {
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .mega-menu .col a {
       font-size: 16px;
-      transition: all 0.3s ease;
-      border-bottom: 1px solid #eee;
-    }
-
-    .topic-title i {
-      color: #2196f3;
-      font-size: 18px;
-    }
-
-    .topic-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      padding: 0 20px;
-      background-color: #fafafa;
-    }
-
-    .topic-content a {
-      display: block;
-      margin: 10px 0;
-      color: #333;
+      margin: 6px 0;
+      color: #000;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
 
-    .topic-content a:hover {
-      color: #2196f3;
+    .mega-menu .col a:hover {
+      color: #0071e3;
     }
 
-    .topic.active {
-      transform: scale(1.03);
-      border-color: #2196f3;
+    .menu-container {
+      position: relative;
     }
 
-    .topic.active .topic-title {
-      color: #2196f3;
+    .menu-container:hover .mega-menu {
+      display: grid;
     }
 
-    .topic.active .topic-content {
-      max-height: 500px;
-      padding: 15px 20px;
+    /* تصویر هدر */
+    .header-image {
+      width: 100%;
+      height: 300px;
+      background-image: url('3754E583-9EE8-4D0A-9FD6-2C99B8030F25.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    @media (max-width: 768px) {
+      .mega-menu {
+        display: none !important;
+      }
     }
   </style>
 </head>
 <body>
 
-<section class="topics-container">
-  <div class="topic" onclick="toggleTopic(this)">
-    <div class="topic-title"><i class="fas fa-chart-line"></i><span>عنوان اول</span></div>
-    <div class="topic-content">
-      <a href="#">لینک ۱</a>
-      <a href="#">لینک ۲</a>
-      <a href="#">لینک ۳</a>
-      <a href="#">لینک ۴</a>
-      <a href="#">لینک ۵</a>
+<!-- هدر -->
+<header>
+  <nav class="top-nav">
+    <div class="menu-container">
+      <a>Mac</a>
+      <div class="mega-menu">
+        <div class="col">
+          <h4>مرور Mac</h4>
+          <a href="#">MacBook Air</a>
+          <a href="#">MacBook Pro</a>
+          <a href="#">iMac</a>
+          <a href="#">Mac mini</a>
+        </div>
+        <div class="col">
+          <h4>خرید</h4>
+          <a href="#">خرید Mac</a>
+          <a href="#">تجارت با اپل</a>
+          <a href="#">لوازم جانبی</a>
+        </div>
+        <div class="col">
+          <h4>دیگر</h4>
+          <a href="#">macOS</a>
+          <a href="#">iCloud</a>
+          <a href="#">آموزش</a>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="topic" onclick="toggleTopic(this)">
-    <div class="topic-title"><i class="fas fa-user-friends"></i><span>عنوان دوم</span></div>
-    <div class="topic-content">
-      <a href="#">لینک ۱</a>
-      <a href="#">لینک ۲</a>
-      <a href="#">لینک ۳</a>
-      <a href="#">لینک ۴</a>
-      <a href="#">لینک ۵</a>
+    <div class="menu-container">
+      <a>iPhone</a>
+      <div class="mega-menu">
+        <div class="col">
+          <h4>مدل‌ها</h4>
+          <a href="#">iPhone 15</a>
+          <a href="#">iPhone 14</a>
+          <a href="#">iPhone SE</a>
+        </div>
+        <div class="col">
+          <h4>خدمات</h4>
+          <a href="#">iCloud</a>
+          <a href="#">AppleCare+</a>
+        </div>
+        <div class="col">
+          <h4>پیشنهادها</h4>
+          <a href="#">خرید اقساطی</a>
+          <a href="#">تجارت گوشی</a>
+        </div>
+      </div>
     </div>
-  </div>
+    <!-- موارد دیگر مانند iPad، Watch... -->
+  </nav>
+</header>
 
-  <!-- 7 مورد دیگر مشابه بالا -->
-  <div class="topic" onclick="toggleTopic(this)">
-    <div class="topic-title"><i class="fas fa-book"></i><span>عنوان سوم</span></div>
-    <div class="topic-content">
-      <a href="#">لینک ۱</a>
-      <a href="#">لینک ۲</a>
-      <a href="#">لینک ۳</a>
-      <a href="#">لینک ۴</a>
-      <a href="#">لینک ۵</a>
-    </div>
-  </div>
-
-  <div class="topic" onclick="toggleTopic(this)">
-    <div class="topic-title"><i class="fas fa-cogs"></i><span>عنوان چهارم</span></div>
-    <div class="topic-content">
-      <a href="#">لینک ۱</a>
-      <a href="#">لینک ۲</a>
-      <a href="#">لینک ۳</a>
-      <a href="#">لینک ۴</a>
-      <a href="#">لینک ۵</a>
-    </div>
-  </div>
-
-  <div class="topic" onclick="toggleTopic(this)">
-    <div class="topic-title"><i class="fas fa-briefcase"></i><span>عنوان پنجم</span></div>
-    <div class="topic-content">
-      <a href="#">لینک ۱</a>
-      <a href="#">لینک ۲</a>
-      <a href="#">لینک ۳</a>
-      <a href="#">لینک ۴</a>
-      <a href="#">لینک ۵</a>
-    </div>
-  </div>
-
-  <div class="topic" onclick="toggleTopic(this)">
-    <div class="topic-title"><i class="fas fa-bullhorn"></i><span>عنوان ششم</span></div>
-    <div class="topic-content">
-      <a href="#">لینک ۱</a>
-      <a href="#">لینک ۲</a>
-      <a href="#">لینک ۳</a>
-      <a href="#">لینک ۴</a>
-      <a href="#">لینک ۵</a>
-    </div>
-  </div>
-
-  <div class="topic" onclick="toggleTopic(this)">
-    <div class="topic-title"><i class="fas fa-globe"></i><span>عنوان هفتم</span></div>
-    <div class="topic-content">
-      <a href="#">لینک ۱</a>
-      <a href="#">لینک ۲</a>
-      <a href="#">لینک ۳</a>
-      <a href="#">لینک ۴</a>
-      <a href="#">لینک ۵</a>
-    </div>
-  </div>
-
-  <div class="topic" onclick="toggleTopic(this)">
-    <div class="topic-title"><i class="fas fa-leaf"></i><span>عنوان هشتم</span></div>
-    <div class="topic-content">
-      <a href="#">لینک ۱</a>
-      <a href="#">لینک ۲</a>
-      <a href="#">لینک ۳</a>
-      <a href="#">لینک ۴</a>
-      <a href="#">لینک ۵</a>
-    </div>
-  </div>
-
-  <div class="topic" onclick="toggleTopic(this)">
-    <div class="topic-title"><i class="fas fa-heartbeat"></i><span>عنوان نهم</span></div>
-    <div class="topic-content">
-      <a href="#">لینک ۱</a>
-      <a href="#">لینک ۲</a>
-      <a href="#">لینک ۳</a>
-      <a href="#">لینک ۴</a>
-      <a href="#">لینک ۵</a>
-    </div>
-  </div>
-
-</section>
-
-<script>
-  function toggleTopic(element) {
-    document.querySelectorAll('.topic').forEach(el => {
-      if (el !== element) el.classList.remove('active');
-    });
-    element.classList.toggle('active');
-  }
-</script>
+<!-- تصویر هدر -->
+<div class="header-image"></div>
 
 </body>
 </html>
