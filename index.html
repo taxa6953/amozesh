@@ -29,11 +29,29 @@
       justify-content: space-between;
       align-items: center;
       padding: 22px 30px;
+      flex-direction: row-reverse;
     }
 
     .logo {
       font-weight: bold;
       font-size: 20px;
+    }
+
+    .nav-titles {
+      text-align: right;
+      margin-left: 20px;
+    }
+
+    .site-title {
+      margin: 0;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .site-subtitle {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
     }
 
     .nav-toggle {
@@ -71,11 +89,10 @@
       position: absolute;
       top: 100%;
       background: #f9f9f9;
-      padding: 15px 40px; /* فاصله کمتر از هدر */
+      padding: 15px 40px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       border-top: 1px solid #ddd;
       width: 100%;
-      display: none;
       flex-wrap: wrap;
       justify-content: flex-start;
       direction: rtl;
@@ -152,6 +169,10 @@
 
   <header>
     <div class="navbar">
+      <div class="nav-titles">
+        <h1 class="site-title">اپلی</h1>
+        <h2 class="site-subtitle">فروشگاه رسمی محصولات</h2>
+      </div>
       <div class="logo">لوگو</div>
       <div class="nav-toggle" id="nav-toggle">&#9776;</div>
       <ul class="nav-items" id="nav-items">
@@ -161,6 +182,9 @@
       </ul>
     </div>
   </header>
+
+  <!-- تصویر زیر هدر -->
+  <img src="header.png" alt="هدر" style="width: 100%; display: block;" />
 
   <div class="mega-menu-wrapper">
     <!-- منوی مک -->
@@ -229,5 +253,6 @@
       }
     });
   </script>
+
 </body>
 </html>
