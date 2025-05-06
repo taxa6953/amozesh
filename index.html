@@ -8,15 +8,13 @@
     * {
       box-sizing: border-box;
     }
-
     body {
       margin: 0;
       font-family: sans-serif;
       background-color: #fff;
       direction: rtl;
     }
-
-    /* هدر چسبان */
+    /* هدر */
     header {
       background-color: #fff;
       border-bottom: 1px solid #ddd;
@@ -24,22 +22,16 @@
       top: 0;
       z-index: 1000;
     }
-
-    /* نوار ناوبری */
     .navbar {
       display: flex;
       align-items: center;
       padding: 22px 30px;
     }
-
-    /* لوگو با فاصله از منو */
     .logo {
       font-weight: bold;
       font-size: 20px;
-      margin-left: 30px;
+      margin-left: 30px; /* فاصله لوگو تا آیتم‌های منو */
     }
-
-    /* آیتم‌های منو */
     .nav-items {
       display: flex;
       gap: 25px;
@@ -47,52 +39,39 @@
       margin: 0;
       padding: 0;
     }
-
     .nav-item {
-      position: relative;
       font-size: 18px;
       cursor: pointer;
       font-weight: 500;
       transition: color 0.2s ease;
     }
-
     .nav-item:hover {
       color: #0071e3;
     }
 
-    /* تصویر زیر هدر */
-    .header-image {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    /* مگا منو شیشه‌ای مات */
+    /* مگا منو (داخل هدر) */
     .mega-menu-wrapper {
-      position: relative;
+      position: absolute;
+      top: 100%;
+      right: 0;
       width: 100%;
+      z-index: 999;
     }
-
     .mega-menu {
       display: none;
-      position: absolute;
-      top: 0;           /* دقیقا از زیر هدر */
-      right: 0;
       background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(10px);
       padding: 20px 40px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       border-top: 1px solid #ddd;
-      width: 100%;
+      display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
       direction: rtl;
-      z-index: 999;
     }
     .mega-menu.active {
       display: flex;
     }
-
     .column {
       flex: 1;
       max-width: 250px;
@@ -116,22 +95,16 @@
       font-weight: bold;
     }
 
-    /* واکنش‌گرایی: اگر لازم شد در موبایل منو را به صورت اسکرولی درآور */
-    @media (max-width: 600px) {
-      .nav-items {
-        gap: 15px;
-        overflow-x: auto;
-        padding: 10px;
-      }
-      .nav-items::-webkit-scrollbar {
-        display: none;
-      }
+    /* تصویر زیر هدر */
+    .header-image {
+      display: block;
+      width: 100%;
+      height: auto;
     }
   </style>
 </head>
 <body>
 
-  <!-- هدر و منو -->
   <header>
     <div class="navbar">
       <div class="logo">لوگو</div>
@@ -141,45 +114,42 @@
         <li class="nav-item" data-target="menu-watch">ساعت</li>
       </ul>
     </div>
+
+    <!-- مگا منوها داخل هدر -->
+    <div class="mega-menu-wrapper">
+      <div class="mega-menu" id="menu-mac">
+        <div class="column">
+          <h4>مدل‌های مک</h4>
+          <a href="#">مک‌بوک ایر</a>
+          <a href="#">مک‌بوک پرو</a>
+          <a href="#">آی‌مک</a>
+        </div>
+        <div class="column">
+          <h4>راهنما</h4>
+          <a href="#">مقایسه مدل‌ها</a>
+          <a href="#">خرید ویژه دانشجویان</a>
+        </div>
+      </div>
+      <div class="mega-menu" id="menu-iphone">
+        <div class="column">
+          <h4>مدل‌های آیفون</h4>
+          <a href="#">آیفون ۱۵</a>
+          <a href="#">آیفون ۱۵ پرو</a>
+        </div>
+      </div>
+      <div class="mega-menu" id="menu-watch">
+        <div class="column">
+          <h4>مدل‌های ساعت</h4>
+          <a href="#">سری ۹</a>
+          <a href="#">اولترا ۲</a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <!-- تصویر زیر هدر -->
   <img src="header.png" alt="هدر" class="header-image" />
 
-  <!-- مگا منوها -->
-  <div class="mega-menu-wrapper">
-    <div class="mega-menu" id="menu-mac">
-      <div class="column">
-        <h4>مدل‌های مک</h4>
-        <a href="#">مک‌بوک ایر</a>
-        <a href="#">مک‌بوک پرو</a>
-        <a href="#">آی‌مک</a>
-      </div>
-      <div class="column">
-        <h4>راهنما</h4>
-        <a href="#">مقایسه مدل‌ها</a>
-        <a href="#">خرید ویژه دانشجویان</a>
-      </div>
-    </div>
-
-    <div class="mega-menu" id="menu-iphone">
-      <div class="column">
-        <h4>مدل‌های آیفون</h4>
-        <a href="#">آیفون ۱۵</a>
-        <a href="#">آیفون ۱۵ پرو</a>
-      </div>
-    </div>
-
-    <div class="mega-menu" id="menu-watch">
-      <div class="column">
-        <h4>مدل‌های ساعت</h4>
-        <a href="#">سری ۹</a>
-        <a href="#">اولترا ۲</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- اسکریپت فعال‌سازی مگا منو -->
   <script>
     const menuItems = document.querySelectorAll('.nav-item');
     const menus = document.querySelectorAll('.mega-menu');
