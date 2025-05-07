@@ -1,244 +1,42 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اخبار</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #f4f7f6;
-    }
+<section class="news-list">
+  <header class="news-list__header">
+    <h2 class="news-list__title">اخبار</h2>
+    <p class="news-list__subtitle">مروری بر آخرین اخبار</p>
+  </header>
 
-    .container {
-      background: white;
-      border-radius: 2vw;
-      padding: 2vw;
-      max-width: 1000px;
-      margin: 3vw auto;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
+  <article class="news-item">
+    <figure class="news-item__thumb">
+      <img src="https://via.placeholder.com/150×100" alt="خبر یک">
+    </figure>
+    <div class="news-item__body">
+      <h3 class="news-item__title">
+        <a href="#">خبر یک</a>
+      </h3>
+      <time class="news-item__time" datetime="2025-05-07">۷ می ۱۴۰۴</time>
+      <p class="news-item__summary">توضیح کوتاه درباره خبر یک...</p>
+      <a href="#" class="news-item__readmore">جزئیات</a>
+    </div>
+  </article>
 
-    .header {
-      margin-bottom: 2vw;
-    }
+  <!-- تکرار article به تعداد خبرها -->
+  
+  <article class="news-item">
+    <figure class="news-item__thumb">
+      <img src="https://via.placeholder.com/150×100" alt="خبر دو">
+    </figure>
+    <div class="news-item__body">
+      <h3 class="news-item__title">
+        <a href="#">خبر دو</a>
+      </h3>
+      <time class="news-item__time" datetime="2025-05-06">۶ می ۱۴۰۴</time>
+      <p class="news-item__summary">توضیح کوتاه درباره خبر دو...</p>
+      <a href="#" class="news-item__readmore">جزئیات</a>
+    </div>
+  </article>
 
-    .header h2 {
-      font-size: 2.5vw;
-      margin-bottom: 0.5vw;
-    }
+  <!-- … -->
 
-    .header p {
-      font-size: 1.2vw;
-      color: gray;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2vw;
-    }
-
-    @media (min-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .app {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2vw;
-      border-radius: 1vw;
-      border: 1px solid #eee;
-      transition: transform 0.3s ease;
-    }
-
-    .app:hover {
-      transform: scale(1.01);
-    }
-
-    .app-info {
-      display: flex;
-      align-items: center;
-    }
-
-    .app img {
-      width: 4.5vw;
-      height: 4.5vw;
-      border-radius: 1vw;
-      margin-left: 1vw;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .app img:hover {
-      transform: scale(1.1);
-    }
-
-    .app-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .app-title {
-      font-weight: bold;
-      font-size: 1.2vw;
-    }
-
-    .app-subtitle {
-      font-size: 1vw;
-      color: gray;
-    }
-
-    .button {
-      background-color: #e0e0e0;
-      border: none;
-      border-radius: 1vw;
-      padding: 0.6vw 1.2vw;
-      font-size: 1vw;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    /* دکمه نمایش بیشتر */
-    .load-more {
-      margin-top: 2vw;
-      display: flex;
-      justify-content: center;
-    }
-
-    .load-more .button {
-      background-color: #007aff;
-      color: white;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="title-section">
-    <h2>اخبار</h2>
-    <p>مروری بر اخبار</p>
+  <div class="news-list__load-more">
+    <button class="news-list__load-btn">نمایش بیشتر</button>
   </div>
-
-  <div class="container">
-    <div class="app">
-      <div class="app-info">
-        <img src="https://via.placeholder.com/64" alt="خبر ۱">
-        <div class="app-text">
-          <div class="app-title">خبر یک</div>
-          <div class="app-subtitle">توضیح خبر یک</div>
-        </div>
-      </div>
-      <button class="button">جزئیات</button>
-    </div>
-
-    <div class="app">
-      <div class="app-info">
-        <img src="https://via.placeholder.com/64" alt="خبر ۲">
-        <div class="app-text">
-          <div class="app-title">خبر دو</div>
-          <div class="app-subtitle">توضیح خبر دو</div>
-        </div>
-      </div>
-      <button class="button">جزئیات</button>
-    </div>
-
-    <div class="app">
-      <div class="app-info">
-        <img src="https://via.placeholder.com/64" alt="خبر ۳">
-        <div class="app-text">
-          <div class="app-title">خبر سوم</div>
-          <div class="app-subtitle">توضیح خبر سوم</div>
-        </div>
-      </div>
-      <button class="button">جزئیات</button>
-    </div>
-
-    <div class="app">
-      <div class="app-info">
-        <img src="https://via.placeholder.com/64" alt="خبر ۴">
-        <div class="app-text">
-          <div class="app-title">خبر چهار</div>
-          <div class="app-subtitle">توضیح خبر چهار</div>
-        </div>
-      </div>
-      <button class="button">جزئیات</button>
-    </div>
-
-    <div class="app">
-      <div class="app-info">
-        <img src="https://via.placeholder.com/64" alt="خبر ۵">
-        <div class="app-text">
-          <div class="app-title">خبر پنج</div>
-          <div class="app-subtitle">توضیح خبر پنج</div>
-        </div>
-      </div>
-      <button class="button">جزئیات</button>
-    </div>
-    <div class="app">
-      <div class="app-info">
-        <img src="https://via.placeholder.com/64" alt="خبر ۵">
-        <div class="app-text">
-          <div class="app-title">خبر پنج</div>
-          <div class="app-subtitle">توضیح خبر پنج</div>
-        </div>
-      </div>
-      <button class="button">جزئیات</button>
-    </div>
-        <div class="app">
-      <div class="app-info">
-        <img src="https://via.placeholder.com/64" alt="خبر ۵">
-        <div class="app-text">
-          <div class="app-title">خبر پنج</div>
-          <div class="app-subtitle">توضیح خبر پنج</div>
-        </div>
-      </div>
-      <button class="button">جزئیات</button>
-    </div>
-       <div class="app">
-      <div class="app-info">
-        <img src="https://via.placeholder.com/64" alt="خبر ۵">
-        <div class="app-text">
-          <div class="app-title">خبر پنج</div>
-          <div class="app-subtitle">توضیح خبر پنج</div>
-        </div>
-      </div>
-      <button class="button">جزئیات</button>
-    </div> 
-      <div class="app">
-      <div class="app-info">
-        <img src="https://via.placeholder.com/64" alt="خبر ۵">
-        <div class="app-text">
-          <div class="app-title">خبر پنج</div>
-          <div class="app-subtitle">توضیح خبر پنج</div>
-        </div>
-      </div>
-      <button class="button">جزئیات</button>
-    </div> 
-        <div class="app">
-      <div class="app-info">
-        <img src="https://via.placeholder.com/64" alt="خبر ۵">
-        <div class="app-text">
-          <div class="app-title">خبر پنج</div>
-          <div class="app-subtitle">توضیح خبر پنج</div>
-        </div>
-      </div>
-      <button class="button">جزئیات</button>
-    </div>
-        <div class="app">
-      <div class="app-info">
-        <img src="https://via.placeholder.com/64" alt="خبر ۵">
-        <div class="app-text">
-          <div class="app-title">خبر پنج</div>
-          <div class="app-subtitle">توضیح خبر پنج</div>
-        </div>
-      </div>
-      <button class="button">جزئیات</button>
-    </div>
-  </div>
-
-</body>
-</html>
+</section>
