@@ -2,51 +2,62 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>اخبار</title>
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
-      background-color: #f5f8f7;
-      padding: 20px;
-    }
-
-    .title-section {
-      text-align: right;
-      margin-bottom: 20px;
-    }
-
-    .title-section h2 {
-      margin: 0;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .title-section p {
-      color: #666;
-      margin: 5px 0 0;
-      font-size: 14px;
+      background: #f4f7f6;
     }
 
     .container {
       background: white;
-      border-radius: 20px;
-      padding: 20px;
-      width: 100%;
-      max-width: 420px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      margin: 0 auto;
+      border-radius: 2vw;
+      padding: 2vw;
+      max-width: 1000px;
+      margin: 3vw auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      margin-bottom: 2vw;
+    }
+
+    .header h2 {
+      font-size: 2.5vw;
+      margin-bottom: 0.5vw;
+    }
+
+    .header p {
+      font-size: 1.2vw;
+      color: gray;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2vw;
+    }
+
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     .app {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 0;
+      padding: 1.2vw;
+      border-radius: 1vw;
+      border: 1px solid #eee;
+      transition: transform 0.3s ease;
     }
 
-    .app + .app {
-      border-top: 1px solid #eee;
+    .app:hover {
+      transform: scale(1.01);
     }
 
     .app-info {
@@ -55,11 +66,16 @@
     }
 
     .app img {
-      width: 64px;
-      height: 64px;
-      border-radius: 12px;
-      margin-left: 12px;
+      width: 4.5vw;
+      height: 4.5vw;
+      border-radius: 1vw;
+      margin-left: 1vw;
       object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .app img:hover {
+      transform: scale(1.1);
     }
 
     .app-text {
@@ -69,42 +85,34 @@
 
     .app-title {
       font-weight: bold;
-      font-size: 16px;
+      font-size: 1.2vw;
     }
 
     .app-subtitle {
-      font-size: 13px;
+      font-size: 1vw;
       color: gray;
     }
 
     .button {
       background-color: #e0e0e0;
       border: none;
-      border-radius: 14px;
-      padding: 6px 14px;
-      font-size: 14px;
+      border-radius: 1vw;
+      padding: 0.6vw 1.2vw;
+      font-size: 1vw;
       cursor: pointer;
       text-decoration: none;
-      color: #007aff;
     }
 
-    .more-btn {
-      display: block;
-      text-align: center;
-      width: 100%;
-      margin-top: 20px;
-      background-color: #e0e0e0;
-      border-radius: 14px;
-      padding: 10px;
-      font-size: 14px;
-      color: #007aff;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s ease;
+    /* دکمه نمایش بیشتر */
+    .load-more {
+      margin-top: 2vw;
+      display: flex;
+      justify-content: center;
     }
 
-    .more-btn:hover {
-      background-color: #d0d0d0;
+    .load-more .button {
+      background-color: #007aff;
+      color: white;
     }
   </style>
 </head>
