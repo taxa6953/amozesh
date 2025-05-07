@@ -1,0 +1,117 @@
+/* کانتینر کلی و هدر */
+.news-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Vazir', sans-serif;
+}
+.news-list__header {
+  text-align: right;
+  margin-bottom: 20px;
+}
+.news-list__title {
+  font-size: 1.8rem;
+  margin: 0;
+}
+.news-list__subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 5px 0 0;
+}
+
+/* هر خبر */
+.news-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid #eee;
+}
+.news-item:first-of-type {
+  border-top: none;
+}
+
+/* تصویر خبر */
+.news-item__thumb img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.news-item__thumb img:hover {
+  transform: scale(1.05);
+}
+
+/* متن خبر */
+.news-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.news-item__title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.news-item__title a {
+  text-decoration: none;
+  color: #000;
+}
+.news-item__time {
+  font-size: 0.9rem;
+  color: #999;
+}
+.news-item__summary {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+.news-item__readmore {
+  align-self: flex-start;
+  font-size: 0.95rem;
+  color: #007aff;
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid #007aff;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.news-item__readmore:hover {
+  background-color: #007aff;
+  color: #fff;
+}
+
+/* دکمه نمایش بیشتر */
+.news-list__load-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.news-list__load-btn {
+  font-size: 1rem;
+  padding: 8px 16px;
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.news-list__load-btn:hover {
+  background-color: #005bb5;
+}
+
+/* ریسپانسیو: در دسکتاپ تصویر کنار متن */
+@media (min-width: 600px) {
+  .news-item {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .news-item__thumb {
+    flex: 0 0 150px;
+  }
+  .news-item__body {
+    flex: 1;
+  }
+}
