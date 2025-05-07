@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>اخبار</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f5f8f7;
+      padding: 20px;
+    }
+
+    .title-section {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+
+    .title-section h2 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .title-section p {
+      color: #666;
+      margin: 5px 0 0;
+      font-size: 14px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+    }
+
+    .app {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .app + .app {
+      border-top: 1px solid #eee;
+    }
+
+    .app-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .app img {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      margin-left: 12px;
+      object-fit: cover;
+    }
+
+    .app-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-title {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .app-subtitle {
+      font-size: 13px;
+      color: gray;
+    }
+
+    .button {
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 14px;
+      padding: 6px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #007aff;
+    }
+
+    .more-btn {
+      display: block;
+      text-align: center;
+      width: 100%;
+      margin-top: 20px;
+      background-color: #e0e0e0;
+      border-radius: 14px;
+      padding: 10px;
+      font-size: 14px;
+      color: #007aff;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .more-btn:hover {
+      background-color: #d0d0d0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="title-section">
+    <h2>اخبار</h2>
+    <p>مروری بر اخبار</p>
+  </div>
+
+  <div class="container">
+    <div class="app">
+      <div class="app-info">
+        <img src="https://via.placeholder.com/64" alt="خبر ۱">
+        <div class="app-text">
+          <div class="app-title">خبر یک</div>
+          <div class="app-subtitle">توضیح خبر یک</div>
+        </div>
+      </div>
+      <button class="button">جزئیات</button>
+    </div>
+
+    <div class="app">
+      <div class="app-info">
+        <img src="https://via.placeholder.com/64" alt="خبر ۲">
+        <div class="app-text">
+          <div class="app-title">خبر دو</div>
+          <div class="app-subtitle">توضیح خبر دو</div>
+        </div>
+      </div>
+      <button class="button">جزئیات</button>
+    </div>
+
+    <div class="app">
+      <div class="app-info">
+        <img src="https://via.placeholder.com/64" alt="خبر ۳">
+        <div class="app-text">
+          <div class="app-title">خبر سوم</div>
+          <div class="app-subtitle">توضیح خبر سوم</div>
+        </div>
+      </div>
+      <button class="button">جزئیات</button>
+    </div>
+
+    <div class="app">
+      <div class="app-info">
+        <img src="https://via.placeholder.com/64" alt="خبر ۴">
+        <div class="app-text">
+          <div class="app-title">خبر چهار</div>
+          <div class="app-subtitle">توضیح خبر چهار</div>
+        </div>
+      </div>
+      <button class="button">جزئیات</button>
+    </div>
+
+    <div class="app">
+      <div class="app-info">
+        <img src="https://via.placeholder.com/64" alt="خبر ۵">
+        <div class="app-text">
+          <div class="app-title">خبر پنج</div>
+          <div class="app-subtitle">توضیح خبر پنج</div>
+        </div>
+      </div>
+      <button class="button">جزئیات</button>
+    </div>
+
+    <!-- دکمه نمایش بیشتر -->
+    <a href="more-news.html" class="more-btn">نمایش اخبار بیشتر</a>
+  </div>
+
+</body>
+</html>
