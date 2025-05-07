@@ -134,12 +134,44 @@
     .btn-load:hover {
       background: #005bb5;
     }
+    /* دکمه بازگشت */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  margin-bottom: 12px; /* فاصله از عنوان */
+}
+
+.back-btn img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.back-btn:hover {
+  background-color: #d0d0d0;
+}
+
   </style>
 </head>
 <body>
 
   <div class="news-container">
     <div class="news-header">
+      <div class="news-header">
+  <!-- دکمه بازگشت -->
+  <a href="index.html" class="back-btn">
+    <img src="https://via.placeholder.com/24x24.gif" alt="بازگشت" />
+    بازگشت
+  </a>
       <h2>اخبار</h2>
       <p>مروری بر اخبار</p>
     </div>
